@@ -1,43 +1,173 @@
-0x00007ffff7a462d0 <+0>:	push   %rbp
-   0x00007ffff7a462d1 <+1>:	mov    %rsp,%rbp
-   0x00007ffff7a462d4 <+4>:	push   %r15
-   0x00007ffff7a462d6 <+6>:	push   %r14
-   0x00007ffff7a462d8 <+8>:	push   %r13
-   0x00007ffff7a462da <+10>:	push   %r12
-   0x00007ffff7a462dc <+12>:	mov    %rdi,%r14
-   0x00007ffff7a462df <+15>:	push   %rbx
-   0x00007ffff7a462e0 <+16>:	mov    %rcx,%r15
-   0x00007ffff7a462e3 <+19>:	mov    %rdx,%rbx
-   0x00007ffff7a462e6 <+22>:	mov    %rsi,%r13
-   0x00007ffff7a462e9 <+25>:	sub    $0x68,%rsp
-   0x00007ffff7a462ed <+29>:	cmp    $0x20,%rdx
-   0x00007ffff7a462f1 <+33>:	mov    %rsi,-0x78(%rbp)
-   0x00007ffff7a462f5 <+37>:	ja     0x7ffff7a465f0 <__GI___qsort_r+800>
-   0x00007ffff7a462fb <+43>:	imul   %rdx,%r13
-   0x00007ffff7a462ff <+47>:	cmp    $0x3ff,%r13
-   0x00007ffff7a46306 <+54>:	jbe    0x7ffff7a46604 <__GI___qsort_r+820>
-   0x00007ffff7a4630c <+60>:	mov    0x38c8fe(%rip),%edx        # 0x7ffff7dd2c10 <pagesize.8249>
-   0x00007ffff7a46312 <+66>:	test   %edx,%edx
-   0x00007ffff7a46314 <+68>:	je     0x7ffff7a466b0 <__GI___qsort_r+992>
-   0x00007ffff7a4631a <+74>:	movslq %edx,%rsi
-   0x00007ffff7a4631d <+77>:	mov    %r13,%rax
-   0x00007ffff7a46320 <+80>:	xor    %edx,%edx
-   0x00007ffff7a46322 <+82>:	div    %rsi
-   0x00007ffff7a46325 <+85>:	cmp    0x38c8dc(%rip),%rax        # 0x7ffff7dd2c08 <phys_pages.8248>
-   0x00007ffff7a4632c <+92>:	ja     0x7ffff7a46630 <__GI___qsort_r+864>
-   0x00007ffff7a46332 <+98>:	mov    0x38ab3f(%rip),%rax        # 0x7ffff7dd0e78
-   0x00007ffff7a46339 <+105>:	mov    %r13,%rdi
-   0x00007ffff7a4633c <+108>:	mov    %r8,-0x68(%rbp)
-   0x00007ffff7a46340 <+112>:	mov    %fs:(%rax),%r12d
-   0x00007ffff7a46344 <+116>:	callq  0x7ffff7a2c8a0
-   0x00007ffff7a46349 <+121>:	mov    0x38ab28(%rip),%rcx        # 0x7ffff7dd0e78
-   0x00007ffff7a46350 <+128>:	test   %rax,%rax
-   0x00007ffff7a46353 <+131>:	mov    %rax,-0x88(%rbp)
-   0x00007ffff7a4635a <+138>:	mov    -0x68(%rbp),%r8
-   0x00007ffff7a4635e <+142>:	mov    %r12d,%fs:(%rcx)
-   0x00007ffff7a46362 <+146>:	je     0x7ffff7a46630 <__GI___qsort_r+864>
-   0x00007ffff7a46368 <+152>:	mov    %rax,-0x40(%rbp)
-   0x00007ffff7a4636c <+156>:	mov    %rax,%rsi
-   0x00007ffff7a4636f <+159>:	cmp    $0x20,%rbx
-   0x00007ffff7a46373 <+163>:	mov    %rbx,-0x60(%rbp)
-   0x00007ffff7a46377 <+167>:	movq   $0x4,-0x58(%rbp)
+=> 0x00007ffff7aac570 <+0>:	mov    %edi,%eax
+   0x00007ffff7aac572 <+2>:	xor    %edx,%edx
+   0x00007ffff7aac574 <+4>:	pxor   %xmm7,%xmm7
+   0x00007ffff7aac578 <+8>:	or     %esi,%eax
+   0x00007ffff7aac57a <+10>:	and    $0xfff,%eax
+   0x00007ffff7aac57f <+15>:	cmp    $0xfc0,%eax
+   0x00007ffff7aac584 <+20>:	jg     0x7ffff7aac802 <__strcmp_sse2_unaligned+658>
+   0x00007ffff7aac58a <+26>:	movdqu (%rdi),%xmm1
+   0x00007ffff7aac58e <+30>:	movdqu (%rsi),%xmm0
+   0x00007ffff7aac592 <+34>:	pcmpeqb %xmm1,%xmm0
+   0x00007ffff7aac596 <+38>:	pminub %xmm1,%xmm0
+   0x00007ffff7aac59a <+42>:	pxor   %xmm1,%xmm1
+   0x00007ffff7aac59e <+46>:	pcmpeqb %xmm1,%xmm0
+   0x00007ffff7aac5a2 <+50>:	pmovmskb %xmm0,%eax
+   0x00007ffff7aac5a6 <+54>:	test   %rax,%rax
+   0x00007ffff7aac5a9 <+57>:	je     0x7ffff7aac5c0 <__strcmp_sse2_unaligned+80>
+   0x00007ffff7aac5ab <+59>:	bsf    %rax,%rdx
+   0x00007ffff7aac5af <+63>:	movzbl (%rdi,%rdx,1),%eax
+   0x00007ffff7aac5b3 <+67>:	movzbl (%rsi,%rdx,1),%edx
+   0x00007ffff7aac5b7 <+71>:	sub    %edx,%eax
+   0x00007ffff7aac5b9 <+73>:	retq
+   0x00007ffff7aac5ba <+74>:	nopw   0x0(%rax,%rax,1)
+   0x00007ffff7aac5c0 <+80>:	movdqu 0x10(%rdi),%xmm6
+   0x00007ffff7aac5c5 <+85>:	movdqu 0x10(%rsi),%xmm3
+   0x00007ffff7aac5ca <+90>:	movdqu 0x20(%rdi),%xmm5
+   0x00007ffff7aac5cf <+95>:	pcmpeqb %xmm6,%xmm3
+   0x00007ffff7aac5d3 <+99>:	movdqu 0x20(%rsi),%xmm2
+   0x00007ffff7aac5d8 <+104>:	pminub %xmm6,%xmm3
+   0x00007ffff7aac5dc <+108>:	pcmpeqb %xmm1,%xmm3
+   0x00007ffff7aac5e0 <+112>:	movdqu 0x30(%rdi),%xmm4
+   0x00007ffff7aac5e5 <+117>:	pcmpeqb %xmm5,%xmm2
+   0x00007ffff7aac5e9 <+121>:	pmovmskb %xmm3,%edx
+   0x00007ffff7aac5ed <+125>:	movdqu 0x30(%rsi),%xmm0
+   0x00007ffff7aac5f2 <+130>:	pminub %xmm5,%xmm2
+   0x00007ffff7aac5f6 <+134>:	pcmpeqb %xmm1,%xmm2
+   0x00007ffff7aac5fa <+138>:	pcmpeqb %xmm4,%xmm0
+   0x00007ffff7aac5fe <+142>:	pmovmskb %xmm2,%eax
+   0x00007ffff7aac602 <+146>:	shl    $0x10,%rdx
+   0x00007ffff7aac606 <+150>:	pminub %xmm4,%xmm0
+   0x00007ffff7aac60a <+154>:	pcmpeqb %xmm1,%xmm0
+   0x00007ffff7aac60e <+158>:	shl    $0x20,%rax
+   0x00007ffff7aac612 <+162>:	or     %rdx,%rax
+   0x00007ffff7aac615 <+165>:	pmovmskb %xmm0,%ecx
+---Type <return> to continue, or q <return> to quit---
+   0x00007ffff7aac619 <+169>:	mov    %rcx,%rdx
+   0x00007ffff7aac61c <+172>:	shl    $0x30,%rdx
+   0x00007ffff7aac620 <+176>:	or     %rdx,%rax
+   0x00007ffff7aac623 <+179>:	jne    0x7ffff7aac5ab <__strcmp_sse2_unaligned+59>
+   0x00007ffff7aac625 <+181>:	lea    0x40(%rdi),%rdx
+   0x00007ffff7aac629 <+185>:	mov    $0x1000,%ecx
+   0x00007ffff7aac62e <+190>:	pxor   %xmm9,%xmm9
+   0x00007ffff7aac633 <+195>:	and    $0xffffffffffffffc0,%rdx
+   0x00007ffff7aac637 <+199>:	sub    %rdi,%rdx
+   0x00007ffff7aac63a <+202>:	lea    (%rdi,%rdx,1),%rax
+   0x00007ffff7aac63e <+206>:	add    %rsi,%rdx
+   0x00007ffff7aac641 <+209>:	mov    %rdx,%rsi
+   0x00007ffff7aac644 <+212>:	and    $0xfff,%esi
+   0x00007ffff7aac64a <+218>:	sub    %rsi,%rcx
+   0x00007ffff7aac64d <+221>:	shr    $0x6,%rcx
+   0x00007ffff7aac651 <+225>:	mov    %rcx,%rsi
+   0x00007ffff7aac654 <+228>:	jmp    0x7ffff7aac668 <__strcmp_sse2_unaligned+248>
+   0x00007ffff7aac656 <+230>:	nopw   %cs:0x0(%rax,%rax,1)
+   0x00007ffff7aac660 <+240>:	add    $0x40,%rax
+   0x00007ffff7aac664 <+244>:	add    $0x40,%rdx
+   0x00007ffff7aac668 <+248>:	test   %rsi,%rsi
+   0x00007ffff7aac66b <+251>:	lea    -0x1(%rsi),%rsi
+   0x00007ffff7aac66f <+255>:	je     0x7ffff7aac730 <__strcmp_sse2_unaligned+448>
+   0x00007ffff7aac675 <+261>:	movdqu (%rdx),%xmm0
+   0x00007ffff7aac679 <+265>:	movdqu 0x10(%rdx),%xmm1
+   0x00007ffff7aac67e <+270>:	movdqa (%rax),%xmm2
+   0x00007ffff7aac682 <+274>:	movdqa 0x10(%rax),%xmm3
+   0x00007ffff7aac687 <+279>:	pcmpeqb %xmm2,%xmm0
+   0x00007ffff7aac68b <+283>:	movdqu 0x20(%rdx),%xmm5
+   0x00007ffff7aac690 <+288>:	pcmpeqb %xmm3,%xmm1
+   0x00007ffff7aac694 <+292>:	pminub %xmm2,%xmm0
+   0x00007ffff7aac698 <+296>:	movdqu 0x30(%rdx),%xmm6
+   0x00007ffff7aac69d <+301>:	pminub %xmm3,%xmm1
+   0x00007ffff7aac6a1 <+305>:	movdqa 0x20(%rax),%xmm2
+   0x00007ffff7aac6a6 <+310>:	pminub %xmm1,%xmm0
+   0x00007ffff7aac6aa <+314>:	movdqa 0x30(%rax),%xmm3
+   0x00007ffff7aac6af <+319>:	pcmpeqb %xmm2,%xmm5
+   0x00007ffff7aac6b3 <+323>:	pcmpeqb %xmm3,%xmm6
+   0x00007ffff7aac6b7 <+327>:	pminub %xmm2,%xmm5
+   0x00007ffff7aac6bb <+331>:	pminub %xmm3,%xmm6
+   0x00007ffff7aac6bf <+335>:	pminub %xmm5,%xmm0
+   0x00007ffff7aac6c3 <+339>:	pminub %xmm6,%xmm0
+   0x00007ffff7aac6c7 <+343>:	pcmpeqb %xmm7,%xmm0
+   0x00007ffff7aac6cb <+347>:	pmovmskb %xmm0,%ecx
+---Type <return> to continue, or q <return> to quit---
+   0x00007ffff7aac6cf <+351>:	test   %ecx,%ecx
+   0x00007ffff7aac6d1 <+353>:	je     0x7ffff7aac660 <__strcmp_sse2_unaligned+240>
+   0x00007ffff7aac6d3 <+355>:	pcmpeqb %xmm7,%xmm5
+   0x00007ffff7aac6d7 <+359>:	movdqu (%rdx),%xmm0
+   0x00007ffff7aac6db <+363>:	pcmpeqb %xmm7,%xmm1
+   0x00007ffff7aac6df <+367>:	movdqa (%rax),%xmm2
+   0x00007ffff7aac6e3 <+371>:	pcmpeqb %xmm2,%xmm0
+   0x00007ffff7aac6e7 <+375>:	pminub %xmm2,%xmm0
+   0x00007ffff7aac6eb <+379>:	pcmpeqb %xmm7,%xmm6
+   0x00007ffff7aac6ef <+383>:	pcmpeqb %xmm7,%xmm0
+   0x00007ffff7aac6f3 <+387>:	pmovmskb %xmm1,%ecx
+   0x00007ffff7aac6f7 <+391>:	pmovmskb %xmm5,%r8d
+   0x00007ffff7aac6fc <+396>:	pmovmskb %xmm0,%edi
+   0x00007ffff7aac700 <+400>:	shl    $0x10,%rcx
+   0x00007ffff7aac704 <+404>:	shl    $0x20,%r8
+   0x00007ffff7aac708 <+408>:	pmovmskb %xmm6,%esi
+   0x00007ffff7aac70c <+412>:	or     %r8,%rcx
+   0x00007ffff7aac70f <+415>:	or     %rdi,%rcx
+   0x00007ffff7aac712 <+418>:	shl    $0x30,%rsi
+   0x00007ffff7aac716 <+422>:	or     %rsi,%rcx
+   0x00007ffff7aac719 <+425>:	bsf    %rcx,%rcx
+   0x00007ffff7aac71d <+429>:	movzbl (%rax,%rcx,1),%eax
+   0x00007ffff7aac721 <+433>:	movzbl (%rdx,%rcx,1),%edx
+   0x00007ffff7aac725 <+437>:	sub    %edx,%eax
+   0x00007ffff7aac727 <+439>:	retq
+   0x00007ffff7aac728 <+440>:	nopl   0x0(%rax,%rax,1)
+   0x00007ffff7aac730 <+448>:	xor    %r10,%r10
+   0x00007ffff7aac733 <+451>:	mov    %rdx,%r9
+   0x00007ffff7aac736 <+454>:	and    $0x3f,%r9
+   0x00007ffff7aac73a <+458>:	sub    %r9,%r10
+   0x00007ffff7aac73d <+461>:	movdqa (%rdx,%r10,1),%xmm0
+   0x00007ffff7aac743 <+467>:	movdqa 0x10(%rdx,%r10,1),%xmm1
+   0x00007ffff7aac74a <+474>:	movdqu (%rax,%r10,1),%xmm2
+   0x00007ffff7aac750 <+480>:	movdqu 0x10(%rax,%r10,1),%xmm3
+   0x00007ffff7aac757 <+487>:	pcmpeqb %xmm2,%xmm0
+   0x00007ffff7aac75b <+491>:	movdqa 0x20(%rdx,%r10,1),%xmm5
+   0x00007ffff7aac762 <+498>:	pcmpeqb %xmm3,%xmm1
+   0x00007ffff7aac766 <+502>:	pminub %xmm2,%xmm0
+   0x00007ffff7aac76a <+506>:	movdqa 0x30(%rdx,%r10,1),%xmm6
+   0x00007ffff7aac771 <+513>:	pminub %xmm3,%xmm1
+   0x00007ffff7aac775 <+517>:	movdqu 0x20(%rax,%r10,1),%xmm2
+   0x00007ffff7aac77c <+524>:	movdqu 0x30(%rax,%r10,1),%xmm3
+   0x00007ffff7aac783 <+531>:	pcmpeqb %xmm2,%xmm5
+   0x00007ffff7aac787 <+535>:	pcmpeqb %xmm3,%xmm6
+---Type <return> to continue, or q <return> to quit---
+   0x00007ffff7aac78b <+539>:	pminub %xmm2,%xmm5
+   0x00007ffff7aac78f <+543>:	pminub %xmm3,%xmm6
+   0x00007ffff7aac793 <+547>:	pcmpeqb %xmm7,%xmm0
+   0x00007ffff7aac797 <+551>:	pcmpeqb %xmm7,%xmm1
+   0x00007ffff7aac79b <+555>:	pcmpeqb %xmm7,%xmm5
+   0x00007ffff7aac79f <+559>:	pcmpeqb %xmm7,%xmm6
+   0x00007ffff7aac7a3 <+563>:	pmovmskb %xmm1,%ecx
+   0x00007ffff7aac7a7 <+567>:	pmovmskb %xmm5,%r8d
+   0x00007ffff7aac7ac <+572>:	pmovmskb %xmm0,%edi
+   0x00007ffff7aac7b0 <+576>:	shl    $0x10,%rcx
+   0x00007ffff7aac7b4 <+580>:	shl    $0x20,%r8
+   0x00007ffff7aac7b8 <+584>:	pmovmskb %xmm6,%esi
+   0x00007ffff7aac7bc <+588>:	or     %r8,%rdi
+   0x00007ffff7aac7bf <+591>:	or     %rcx,%rdi
+   0x00007ffff7aac7c2 <+594>:	shl    $0x30,%rsi
+   0x00007ffff7aac7c6 <+598>:	or     %rsi,%rdi
+   0x00007ffff7aac7c9 <+601>:	mov    %r9,%rcx
+   0x00007ffff7aac7cc <+604>:	mov    $0x3f,%rsi
+   0x00007ffff7aac7d3 <+611>:	shr    %cl,%rdi
+   0x00007ffff7aac7d6 <+614>:	test   %rdi,%rdi
+   0x00007ffff7aac7d9 <+617>:	je     0x7ffff7aac675 <__strcmp_sse2_unaligned+261>
+   0x00007ffff7aac7df <+623>:	bsf    %rdi,%rcx
+   0x00007ffff7aac7e3 <+627>:	movzbl (%rax,%rcx,1),%eax
+   0x00007ffff7aac7e7 <+631>:	movzbl (%rdx,%rcx,1),%edx
+   0x00007ffff7aac7eb <+635>:	sub    %edx,%eax
+   0x00007ffff7aac7ed <+637>:	retq
+   0x00007ffff7aac7ee <+638>:	xchg   %ax,%ax
+   0x00007ffff7aac7f0 <+640>:	cmp    %cl,%al
+   0x00007ffff7aac7f2 <+642>:	jne    0x7ffff7aac810 <__strcmp_sse2_unaligned+672>
+   0x00007ffff7aac7f4 <+644>:	add    $0x1,%rdx
+   0x00007ffff7aac7f8 <+648>:	cmp    $0x40,%rdx
+   0x00007ffff7aac7fc <+652>:	je     0x7ffff7aac625 <__strcmp_sse2_unaligned+181>
+   0x00007ffff7aac802 <+658>:	movzbl (%rdi,%rdx,1),%eax
+   0x00007ffff7aac806 <+662>:	movzbl (%rsi,%rdx,1),%ecx
+   0x00007ffff7aac80a <+666>:	test   %al,%al
+   0x00007ffff7aac80c <+668>:	jne    0x7ffff7aac7f0 <__strcmp_sse2_unaligned+640>
+   0x00007ffff7aac80e <+670>:	xor    %eax,%eax
+   0x00007ffff7aac810 <+672>:	sub    %ecx,%eax
+   0x00007ffff7aac812 <+674>:	retq
