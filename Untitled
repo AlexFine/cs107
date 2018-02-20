@@ -1,0 +1,43 @@
+0x00007ffff7a462d0 <+0>:	push   %rbp
+   0x00007ffff7a462d1 <+1>:	mov    %rsp,%rbp
+   0x00007ffff7a462d4 <+4>:	push   %r15
+   0x00007ffff7a462d6 <+6>:	push   %r14
+   0x00007ffff7a462d8 <+8>:	push   %r13
+   0x00007ffff7a462da <+10>:	push   %r12
+   0x00007ffff7a462dc <+12>:	mov    %rdi,%r14
+   0x00007ffff7a462df <+15>:	push   %rbx
+   0x00007ffff7a462e0 <+16>:	mov    %rcx,%r15
+   0x00007ffff7a462e3 <+19>:	mov    %rdx,%rbx
+   0x00007ffff7a462e6 <+22>:	mov    %rsi,%r13
+   0x00007ffff7a462e9 <+25>:	sub    $0x68,%rsp
+   0x00007ffff7a462ed <+29>:	cmp    $0x20,%rdx
+   0x00007ffff7a462f1 <+33>:	mov    %rsi,-0x78(%rbp)
+   0x00007ffff7a462f5 <+37>:	ja     0x7ffff7a465f0 <__GI___qsort_r+800>
+   0x00007ffff7a462fb <+43>:	imul   %rdx,%r13
+   0x00007ffff7a462ff <+47>:	cmp    $0x3ff,%r13
+   0x00007ffff7a46306 <+54>:	jbe    0x7ffff7a46604 <__GI___qsort_r+820>
+   0x00007ffff7a4630c <+60>:	mov    0x38c8fe(%rip),%edx        # 0x7ffff7dd2c10 <pagesize.8249>
+   0x00007ffff7a46312 <+66>:	test   %edx,%edx
+   0x00007ffff7a46314 <+68>:	je     0x7ffff7a466b0 <__GI___qsort_r+992>
+   0x00007ffff7a4631a <+74>:	movslq %edx,%rsi
+   0x00007ffff7a4631d <+77>:	mov    %r13,%rax
+   0x00007ffff7a46320 <+80>:	xor    %edx,%edx
+   0x00007ffff7a46322 <+82>:	div    %rsi
+   0x00007ffff7a46325 <+85>:	cmp    0x38c8dc(%rip),%rax        # 0x7ffff7dd2c08 <phys_pages.8248>
+   0x00007ffff7a4632c <+92>:	ja     0x7ffff7a46630 <__GI___qsort_r+864>
+   0x00007ffff7a46332 <+98>:	mov    0x38ab3f(%rip),%rax        # 0x7ffff7dd0e78
+   0x00007ffff7a46339 <+105>:	mov    %r13,%rdi
+   0x00007ffff7a4633c <+108>:	mov    %r8,-0x68(%rbp)
+   0x00007ffff7a46340 <+112>:	mov    %fs:(%rax),%r12d
+   0x00007ffff7a46344 <+116>:	callq  0x7ffff7a2c8a0
+   0x00007ffff7a46349 <+121>:	mov    0x38ab28(%rip),%rcx        # 0x7ffff7dd0e78
+   0x00007ffff7a46350 <+128>:	test   %rax,%rax
+   0x00007ffff7a46353 <+131>:	mov    %rax,-0x88(%rbp)
+   0x00007ffff7a4635a <+138>:	mov    -0x68(%rbp),%r8
+   0x00007ffff7a4635e <+142>:	mov    %r12d,%fs:(%rcx)
+   0x00007ffff7a46362 <+146>:	je     0x7ffff7a46630 <__GI___qsort_r+864>
+   0x00007ffff7a46368 <+152>:	mov    %rax,-0x40(%rbp)
+   0x00007ffff7a4636c <+156>:	mov    %rax,%rsi
+   0x00007ffff7a4636f <+159>:	cmp    $0x20,%rbx
+   0x00007ffff7a46373 <+163>:	mov    %rbx,-0x60(%rbp)
+   0x00007ffff7a46377 <+167>:	movq   $0x4,-0x58(%rbp)
